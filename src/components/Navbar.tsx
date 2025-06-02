@@ -67,14 +67,6 @@ const Navbar: React.FC = () => {
               {item.label}
             </Link>
           ))}
-          <a
-            href="/nilasish-halder-cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-primary-600 hover:text-primary-700 transition-colors"
-          >
-            Resume
-          </a>
         </div>
 
         {/* Mobile Menu Button */}

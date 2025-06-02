@@ -63,9 +63,9 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="w-full h-72 sm:h-96 bg-primary-200 dark:bg-primary-900 rounded-lg overflow-hidden relative">
                 <img 
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  src="temp.png" 
                   alt="Professional portrait" 
-                  className="w-full h-full object-cover"
+                  className="absoute w-4/5 h-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-600 rounded-lg flex items-center justify-center text-white">
