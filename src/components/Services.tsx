@@ -50,10 +50,6 @@ const Services: React.FC = () => {
               <a
                 href="mailto:nilasishhalderofficial@gmail.com"
                 target="_blank"
-                hover={{
-                  scale: 1.05,
-                  transition: { duration: 0.2 },
-                }}
                 rel="noopener noreferrer"
                 className="inline-block mt-4 px-6 py-2 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors"
               >

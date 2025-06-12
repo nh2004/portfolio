@@ -79,7 +79,7 @@ const About: React.FC = () => {
             {/* Glassmorphism Stats Box */}
             <div className="absolute z-20 -bottom-6 -right-6 w-40 h-28 bg-white/30 dark:bg-black/30 backdrop-blur-lg border border-white/20 rounded-lg flex items-center justify-center shadow-xl">
               <div className="text-center text-white">
-                <div className="text-4xl font-bold text-shadow-md">4+</div>
+                <div className="text-4xl font-bold text-shadow-md">3+</div>
                 <div className="text-sm tracking-wider uppercase font-semibold">Years Coding</div>
               </div>
             </div>

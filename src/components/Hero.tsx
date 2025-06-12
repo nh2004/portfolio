@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-          src="Nilasish_image.png"
+          src="mirror-selfie.png"
           alt="Nilasish Halder"
           className="h-full w-full object-cover opacity-70 dark:opacity-50"
         />

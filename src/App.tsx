@@ -39,12 +39,12 @@ function App() {
         <Hero />
         <About />
         <Skills />
-        <Projects />
+        {/* <Projects /> */}
         <Education />
         <Achievements />
         <Services />
         <Contact />
-        <Analytics />
+        
       </main>
       
       <Footer />
