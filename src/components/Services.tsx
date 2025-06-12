@@ -16,7 +16,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const Services: React.FC = () => {
   return (
-    <section id="services\" className="section-padding bg-gray-100 dark:bg-gray-800">
+    <section id="services" className="section-padding bg-gray-100 dark:bg-gray-800">
       <div className="container-custom">
         <div className="mb-12 text-center">
           <h2 className="section-title mx-auto">My Services</h2>
@@ -43,9 +43,22 @@ const Services: React.FC = () => {
               <h3 className="text-xl font-semibold mb-3 group-hover:text-primary-600 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
                 {service.description}
               </p>
+
+              <a
+                href="mailto:nilasishhalderofficial@gmail.com"
+                target="_blank"
+                hover={{
+                  scale: 1.05,
+                  transition: { duration: 0.2 },
+                }}
+                rel="noopener noreferrer"
+                className="inline-block mt-4 px-6 py-2 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors"
+              >
+                Learn More
+              </a>
             </motion.div>
           ))}
         </div>

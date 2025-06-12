@@ -5,44 +5,47 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Neutral palette for backgrounds, text, and borders
+        neutral: {
+          50: '#f8f9fa',   // Light mode background
+          100: '#e9ecef',
+          200: '#dee2e6',
+          300: '#ced4da',
+          400: '#adb5bd',
+          500: '#6c757d',
+          600: '#495057',
+          700: '#343a40',  // Dark mode text
+          800: '#212529',  // Light mode text
+          900: '#1c1c1c',  // Matte Black for dark mode cards/elements
+          950: '#121212',  // Matte Black for dark mode background
+        },
+        // Primary brand color for links, highlights, and branding
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+          50: '#e7f5ff',
+          100: '#d0ebff',
+          200: '#a5d8ff',
+          300: '#74c0fc',
+          400: '#4dabf7',
+          500: '#339af0', // A strong, professional blue
+          600: '#228be6',
+          700: '#1c7ed6',
+          800: '#1971c2',
+          900: '#1864ab',
+          950: '#114b80',
         },
-        secondary: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617',
-        },
+        // Accent color for CTAs and energetic highlights
         accent: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          200: '#a7f3d0',
-          300: '#6ee7b7',
-          400: '#34d399',
-          500: '#10b981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065f46',
-          900: '#064e3b',
-          950: '#022c22',
+          50: '#fff5f5',
+          100: '#ffe3e3',
+          200: '#ffc9c9',
+          300: '#ffa8a8',
+          400: '#ff8787',
+          500: '#ff6b6b',
+          600: '#fa5252', // A vibrant, modern red
+          700: '#f03e3e',
+          800: '#e03131',
+          900: '#c92a2a',
+          950: '#b02525',
         },
       },
       fontFamily: {
@@ -61,15 +64,28 @@ export default {
       },
       boxShadow: {
         'skill': '0 4px 20px -2px rgba(0, 0, 0, 0.1)',
+        'skill-dark': '0 4px 20px -2px rgba(255, 82, 82, 0.1)',
       },
+      // UPDATED ANIMATIONS
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'marquee': 'marquee 40s linear infinite',
+        'marquee-reverse': 'marquee-reverse 40s linear infinite',
       },
+      // UPDATED KEYFRAMES
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
         },
       },
     },

@@ -11,12 +11,12 @@ export interface ProjectItem {
 export const projectsData: ProjectItem[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Inventory analysis website",
     description: "A full-stack e-commerce platform with user authentication, product management, and payment integration.",
-    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
-    liveUrl: "https://project1.example.com",
-    githubUrl: "https://github.com/username/project1"
+    image: "project-id1.png",
+    technologies: ["React", "Node.js", "SQL", "Express", "AI"],
+    liveUrl: "",
+    githubUrl: "https://github.com/nh2004/dbms-project-coffee-shop"
   },
   {
     id: 2,

@@ -1,67 +1,72 @@
-// Skills.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { skillsData } from '../data/skillsData'; // Adjust path if necessary
+import { skillsData, Skill } from '../data/skillsData'; // Adjust path and ensure Skill type is exported
+
+// A reusable MarqueeRow component to keep the code DRY
+const MarqueeRow: React.FC<{ skills: Skill[]; reverse?: boolean }> = ({ skills, reverse = false }) => {
+  const extendedSkills = [...skills, ...skills]; // Duplicate for seamless loop
+
+  return (
+    <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+      <motion.div
+        className={`flex w-max gap-8 group ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}
+        initial={{ x: 0 }}
+      >
+        {extendedSkills.map((skill, index) => (
+          <div
+            key={index}
+            // Pause animation on hover for the entire group
+            className="group-hover:[animation-play-state:paused]
+                       flex items-center justify-center gap-x-3 px-6 py-3
+                       bg-gray-100 dark:bg-neutral-900
+                       border border-gray-200 dark:border-neutral-700
+                       rounded-full shadow-sm
+                       transition-colors duration-300 hover:!bg-primary-100/50 dark:hover:!bg-primary-950/50"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="w-6 h-6 shrink-0"
+              style={{ fill: skill.icon.color }}
+            >
+              <path d={skill.icon.path} />
+            </svg>
+            <span className="text-md font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
+              {skill.name}
+            </span>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
 
 const Skills: React.FC = () => {
+  // Split the skillsData array into two halves
+  const midpoint = Math.ceil(skillsData.length / 2);
+  const firstRowSkills = skillsData.slice(0, midpoint);
+  const secondRowSkills = skillsData.slice(midpoint);
+
   return (
-    <section
-      id="skills"
-      // Added relative, overflow-hidden, and theme-ash-dark for the preferred theme
-      className="section-padding relative overflow-hidden bg-theme-ash-dark"
-    >
-      {/* Animated grid background */}
-      <div
-        className="absolute inset-0 z-0
-                   bg-[rgba(0,0,0,0.05)]
-                   [background-image:linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)]
-                   [background-size:40px_40px]
-                   animate-grid"
-      ></div>
-
-      <div className="container-custom relative z-10"> {/* Ensure content is above grid */}
-        <div className="mb-12 text-center">
-          <h2 className="section-title mx-auto">My Skills</h2>
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-            Technologies and tools I work with
+    <section id="skills" className="section-padding bg-white dark:bg-neutral-950">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
+          <h2 className="section-title mx-auto">Technologies I Use</h2>
+          <p className="section-subtitle max-w-2xl mx-auto mt-4">
+            A selection of my favorite tools and technologies.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center">
-          {skillsData.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center justify-center group"
-            >
-              <motion.div
-                // Combined styles here. animate-float is from tailwind.config.js
-                // bg-white for light mode, dark:bg-theme-ash-light for dark mode
-                className="w-16 h-16 flex items-center justify-center mb-3 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 relative overflow-hidden animate-float
-                           bg-white dark:bg-theme-ash-light"
-                whileHover={{
-                  scale: 1.1,
-                  transition: { duration: 0.2, ease: "easeOut" }
-                }}
-                // Apply animation delay directly for staggered effect
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-8 h-8"
-                  style={{ fill: skill.icon.color }}
-                >
-                  <path d={skill.icon.path} />
-                </svg>
-              </motion.div>
-              <span className="text-sm font-medium text-center text-gray-800 dark:text-gray-200">
-                {skill.name}
-              </span>
-            </motion.div>
-          ))}
+        {/* Container for the two marquee rows */}
+        <div className="space-y-6">
+          <MarqueeRow skills={firstRowSkills} />
+          <MarqueeRow skills={secondRowSkills} reverse={true} />
         </div>
       </div>
     </section>
